@@ -1,1 +1,1 @@
-# js-practice
+# goit-js-hw-01
