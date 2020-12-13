@@ -62,6 +62,62 @@ const updateIdPlayers = players.map(function (player) {
 const filteredPlayers1 = players.filter(function (player) {
     return player.age < 25;
 })
-console.table(filteredPlayers);
+// console.table(filteredPlayers1);
 
-const filteredPlayers1 = players.filter() 
+const filteredPlayers2 = players.filter(function (player) {
+    return player.points > 50;
+}) 
+// console.table(filteredPlayers2);
+
+ // Нахождение нужного єлемента
+const playerToFind = 'Serg';
+const requiredPlayer = players.find(function (player) {
+    return player.name === playerToFind;
+})
+// console.log(requiredPlayer);
+
+const isAllPlayersYoung = players.every(function (player) {
+    return player.age < 40;
+})
+// console.log(isAllPlayersYoung);
+
+const isSomePlayerYoung = players.some(function (player) {
+    return player.age < 20;
+});
+    // console.log(isAllPlayersYoung);
+
+const playersPoints = players.map(function (player) {
+    return player.points;
+})    
+// console.log(playersPoints);
+const pointsTotal = playersPoints.reduce(function (total,point) {
+    return total + point; 
+})
+// console.log(pointsTotal);
+
+const pointsTotal2 = players.reduce(function (total, player) {
+  return total+player.points  
+}, 0);
+// console.log(pointsTotal2);
+
+const tweets = [
+    { id: 1, likes: 20, tags: ['js', 'css'] },
+    { id: 2, likes: 210, tags: ['json', 'c++'] },
+    { id: 3, likes: 120, tags: ['java', 'css'] },
+    { id: 4, likes: 2, tags: ['php', 'css'] }
+];
+const allTags= tweets.reduce(function (tags,tweet) {
+    return [
+        ...tags, ...tweet.tags
+    ];
+},[])
+console.log(allTags);
+
+const tagsStat = allTags.reduce(function (tagsStat, tag) {
+
+    return {
+        ...tagsStat,
+        [tag]: tagsStat.hasOwnProperty(tag) ? tagsStat[tag] + 1 : 1
+    }
+}, {})
+console.log(tagsStat);
