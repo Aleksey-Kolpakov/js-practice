@@ -44,7 +44,7 @@
 const addButtonRef = document.querySelector('.js-add');
 const removeButtonRef = document.querySelector('.js-remove');
 const targetBtnRef = document.querySelector('.target-button');
-console.log(addButtonRef);
+// console.log(addButtonRef);
 const imWorking = function () { console.log("I'm working") };
 addButtonRef.addEventListener("click", () => {
     targetBtnRef.addEventListener("click", imWorking);
@@ -59,7 +59,7 @@ targetBtnRef.addEventListener("click", event => {
     console.dir(event.target);
 });
 const formRef = document.querySelector('[data-action="form-action"]');
-console.log(formRef.dataset.action);
+// console.log(formRef.dataset.action);
 formRef.addEventListener("submit", (event) => {
     event.preventDefault();
     const formelements = event.target;
@@ -74,12 +74,53 @@ formRef.addEventListener("submit", (event) => {
 
 
     });
-    console.log(submitData);
+    // console.log(submitData);
 
 
 
 })
 
+const inputRef = document.querySelector('#name');
+console.log(inputRef);
+inputRef.addEventListener('input', event=>{
+    console.log(event.target.value);
+    targetBtnRef.textContent = event.target.value;
+});
 
+const checkboxRef = document.querySelector('[name="checkbox"]');
+checkboxRef.addEventListener('change',(event)=> {
+    console.log(event);
+    targetBtnRef.disabled = !event.target.checked;
+});
 
+document.addEventListener('keypress', function (e) {
+    console.log('event.key', e.key);
+    console.log('event.code', e.code);
+    //e.code- местоположение на английской раскладке не чуствтелен к языку, хранится клавиша
+});
+//If we need special keys as Esk, <- etc
+document.addEventListener('keydown', function (e) {
+   console.log(e);
+});
+const h1Ref = document.querySelector('.title');
+document.addEventListener('keydown', function (event) {
+    h1Ref.textContent += event.key;
+});
+const div1Ref = document.querySelector('.js-div1');
+const div2Ref = document.querySelector('.js-div2');
+// div1Ref.addEventListener('mouseenter', function (event) {
+// const div=event.target
+//     div.classList.add('js-active');
+    
+// });
+// div1Ref.addEventListener('mouseleave', function (event) {
+// const div=event.target
+//     div.classList.remove('js-active');
+    
+// });
 
+div1Ref.addEventListener('mouseover', function (event) {
+const div=event.target
+    // div.classList.add('js-active');
+    console.log(event);
+    });
